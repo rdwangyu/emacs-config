@@ -25,7 +25,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(initial-frame-alist '((fullscreen . maximized)))
- '(package-selected-packages '(solarized-theme company ace-window)))
+ '(package-selected-packages '(popwin solarized-theme company ace-window)))
 
 (use-package ace-window
   :ensure t)
@@ -39,8 +39,19 @@
   :ensure t)
 (load-theme 'solarized-dark t)
 
-(provide 'init)
+(setq tramp-use-ssh-controlmaster-options nil)
 
+(defun connect-remote ()
+  (interactive)
+  (dired "/sshx:root@8.140.20.80:"))
+(global-set-key (kbd "<f6>") 'connect-remote)
+
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(use-package popwin
+  :ensure t)
+(require 'popwin)
+(popwin-mode 1)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -48,3 +59,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(provide 'init)
