@@ -46,8 +46,6 @@
   (dired "/sshx:root@8.140.20.80:"))
 (global-set-key (kbd "<f6>") 'connect-remote)
 
-(fset 'yes-or-no-p 'y-or-n-p)
-
 (use-package popwin
   :ensure t)
 (require 'popwin)
