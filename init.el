@@ -25,6 +25,20 @@
                                ("DOING" . "yellow")
                                ("DONE" . "green")))
 
+(use-package org-pomodoro
+  :ensure t
+  :bind ("C-c p s" . org-pomodoro)
+  :config
+  (add-hook 'org-pomodoro-finished-hook
+          (lambda () (org-notify "A pomodoro is finished, take a break!")))
+  (add-hook 'org-pomodoro-short-break-finished-hook
+            (lambda () (org-notify "A short break done, ready a new pomodoro!")))
+  (add-hook 'org-pomodoro-long-break-finished-hook
+            (lambda () (org-notify "A long break done, ready a new pomodoro!"))))
+(setq org-pomodoro-length 5) 
+(setq org-pomodoro-play-sounds t)
+(setq org-pomodoro-long-break-sound "/Users/wy/AppData/Roaming/.emacs.d/sound.wav")
+
 
 (use-package ace-window
   :ensure t)
@@ -73,4 +87,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(buffer-move solarized-theme popwin melancholy-theme company ace-window)))
+   '(org-pomodoro buffer-move solarized-theme popwin melancholy-theme company ace-window)))
