@@ -35,9 +35,6 @@
             (lambda () (org-notify "A short break done, ready a new pomodoro!")))
   (add-hook 'org-pomodoro-long-break-finished-hook
             (lambda () (org-notify "A long break done, ready a new pomodoro!"))))
-(setq org-pomodoro-length 5) 
-(setq org-pomodoro-play-sounds t)
-(setq org-pomodoro-long-break-sound "/Users/wy/AppData/Roaming/.emacs.d/sound.wav")
 
 
 (use-package ace-window
