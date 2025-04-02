@@ -20,23 +20,6 @@
 (savehist-mode 1)
 (setq display-line-numbers-type 'relative)
 
-(setq org-todo-keywords '((sequence "TODO" "DOING" "DONE")))
-(setq org-todo-keyword-faces '(("TODO" . "red")
-                               ("DOING" . "yellow")
-                               ("DONE" . "green")))
-
-(use-package org-pomodoro
-  :ensure t
-  :bind ("C-c p s" . org-pomodoro)
-  :config
-  (add-hook 'org-pomodoro-finished-hook
-          (lambda () (org-notify "A pomodoro is finished, take a break!")))
-  (add-hook 'org-pomodoro-short-break-finished-hook
-            (lambda () (org-notify "A short break done, ready a new pomodoro!")))
-  (add-hook 'org-pomodoro-long-break-finished-hook
-            (lambda () (org-notify "A long break done, ready a new pomodoro!"))))
-
-
 (use-package ace-window
   :ensure t)
 (global-set-key (kbd "M-o") 'ace-window)
