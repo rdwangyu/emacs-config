@@ -18,7 +18,9 @@
 (tool-bar-mode -1)
 (when (display-graphic-p) (toggle-scroll-bar -1))
 (savehist-mode 1)
-(setq display-line-numbers-type 'relative)
+;;(setq display-line-numbers-type 'relative)
+(setq c-default-style "linux"
+      c-basic-offset 4)
 
 (use-package ace-window
   :ensure t)
@@ -30,13 +32,6 @@
 
 (load-theme 'manoj-dark t)
 
-(setq tramp-use-ssh-controlmaster-options nil)
-
-(defun connect-remote ()
-  (interactive)
-  (dired "/sshx:root@8.140.20.80:"))
-(global-set-key (kbd "<f6>") 'connect-remote)
-
 (use-package popwin
   :ensure t)
 (require 'popwin)
@@ -44,15 +39,6 @@
 
 (set-frame-font "Consolas 10" nil t)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-(use-package buffer-move
-  :ensure t)
-(global-set-key (kbd "<C-S-up>")     'buf-move-up)
-(global-set-key (kbd "<C-S-down>")   'buf-move-down)
-(global-set-key (kbd "<C-S-left>")   'buf-move-left)
-(global-set-key (kbd "<C-S-right>")  'buf-move-right)
-(setq buffer-move-behavior 'move)
-
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -66,5 +52,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("4c56af497ddf0e30f65a7232a8ee21b3d62a8c332c6b268c81e9ea99b11da0d3" "524fa911b70d6b94d71585c9f0c5966fe85fb3a9ddd635362bfabd1a7981a307" default))
  '(package-selected-packages
    '(org-pomodoro buffer-move solarized-theme popwin melancholy-theme company ace-window)))
